@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>New Task Page</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1><a href="index.html"><img class="logo" src="images/tflogo.png"></a></h1>
+            <section class="signin">
+                <form method="POST" action="#">
+                    <input type="submit" name="logout" id="logout" value="Log Out"/></p>
+                </form>
+            </section>
+        </header>
+        <div id="wrapper">
+            <div>
+                <h4 class="proheader">Your Tasks</h4>
+                <h5></h5>
+            </div>
+            
+            <form id="newproject" name="newproject" method="post">
+                        <h3 id="npheading">New Task<input type="submit" name="newp_done" id="newp_done" value="Done"/></h3>
+                        <ul>
+                            <li class="newpro">
+                                <label>TASK</label>
+                                <input type="text" name="newname" id="newname" required placeholder="I need a name!" />
+                            </li>
+                            <li class="newpro">
+                                <label>DESCRIPTION</label>
+                                <textarea rows="10" cols="50" name="message" id="message"></textarea>
+                            </li>
+                            <li class="newpro">
+                                <label>DUE DATE</label>
+                                <input type="text" name="duedate" id="duedate" required placeholder="mm/dd/yy" />
+                            </li>
+                            <li class="taskstatus">
+                              <img src="images/complete.png"><img src="images/urgent.png"><img src="images/active.png"><img src="images/delayed.png">
+                            </li>
+                        </ul>
+                    </form>
+   
+            <footer>
+                <div class="fleft"></div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
