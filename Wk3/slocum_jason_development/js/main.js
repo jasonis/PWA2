@@ -54,21 +54,7 @@ $(document).ready(function(){
     
     
     
- /*
-    var loadLanding = function(){
-        var landing = $.get('templates/landing.html');
-        $.when(landing).then(function(h){
-            site.empty().append(h);
-        });
-    };
-    */
-    
-    var loadApp = function(){
-        var app = $.get('templates/app.html');
-        $.when(app).then(function(h){
-            site.empty().append(h);
-        });
-    };
+
     
     
     
