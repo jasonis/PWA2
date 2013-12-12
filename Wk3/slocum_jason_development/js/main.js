@@ -3,8 +3,8 @@
 $(document).ready(function(){
     
     
-    var loadLand = function(){
     
+    var loadLand = function(){
         $.ajax({
             url: 'xhr/login.php',
             type: 'post',
@@ -19,7 +19,7 @@ $(document).ready(function(){
         });
     };
     
-    
+   
     var checkLogin = function(){
 	$.ajax({
 		url:'xhr/check_login.php',
@@ -37,6 +37,27 @@ $(document).ready(function(){
     }
     
     
+    $.ajax({
+	url: 'xhr/login.php',
+	data: {
+		username: user,
+		password: pass
+	},
+	type: 'post',
+	dataType: 'json',
+	success: function(response){
+		if(response.error){
+			showLoginError();
+		}else{
+			loadApp();
+		}
+	}
+		
+    });
+    
+    
+    
+    
     var init = function(){
         $.get('templates/landing.html', function(){
             var landing = $(htmlArg).find('#template_landing').html();
@@ -47,14 +68,14 @@ $(document).ready(function(){
     init();
     
     
-    $('button').on('click', function(e){
+  
+    
+    $('#submit').on('click', function(e){
         loadLand();
         return false;
     });
     
-    
-    
-
+*/
     
     
     
