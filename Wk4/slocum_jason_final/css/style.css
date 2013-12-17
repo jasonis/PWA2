@@ -1,0 +1,359 @@
+/*----- CSS -----*/
+
+/*---------- header ----------*/
+header {
+    margin-left: 16.66666667%;
+    height: 80px;
+}
+
+h1 img {
+    margin: 7.5px, 0px, 7.5px, 0px;
+    /*width: 8.854166667%;
+    height: 6.770833333%;*/
+    float: left;
+}
+
+.logo {
+    margin-left: 20px;
+    width: 10.41666667%;
+}
+
+.signin {
+    margin-left: 52.08333333%;
+}
+
+.signin input {
+    width: 100px;
+    border: none;
+    background-color: #d3d3d3;
+}
+
+#submit {
+    background-color: #f98d21;
+    width: 100px;
+    border: none;
+    margin-bottom: 20px;
+    height: 25px;
+    font-size: 18px;
+    color: #fff;
+}
+
+#submit:hover {
+    background-color: #000;
+    color: #f98d21;
+}
+/*---------- body ----------*/
+body {
+    font-family: 'euphemia ucas', sans-serif;
+    background: #fff;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#wrapper {
+    clear: both;
+    width: 100%;
+    height: 450px;
+    background: #58595e;
+    
+}
+
+#ctahead {
+    margin-left: 33%;
+    color: #fff;
+}
+
+.ctaimg {
+    margin-left: 16.66666667%;
+    float: left;
+    width: 36.45833333%;
+}
+
+h3 {
+    text-align: center;
+    color: #fff;
+    font-family: 'euphemia ucas', sans-serif;
+    font-size: 24px;
+}
+
+#myform {
+    background-color: #344f59;
+    border: 2px solid #000;
+    border-radius: 20px;
+    height: 370px;
+    width: 28.125%;
+    float: right;
+    margin-right: 16.66666667%;
+}
+
+.form {
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+#myform ul {
+    list-style-type: none;
+}
+
+#myform ul li input {
+    border: none;
+    list-style-type: none;
+    width: 74.07407407%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+input:focus, textarea:focus{
+	background: #d3d3d3;
+}
+
+input:hover, textarea:hover{
+	background: #d3d3d3;
+}
+
+#f_submit {
+    background-color: #f98d21;
+    color: #fff;
+    font-size: 20px;
+}
+
+#f_submit:hover {
+    background-color: #fff;
+    color: #f98d21;
+}
+/*---------- footer ----------*/
+.fleft {
+    float: left;
+    width: 32.29166667%;
+    height: 130px;
+    margin-left: 16.66666667%;
+    margin-right: 20px;
+}
+
+.fright {
+    float: right;
+    height: 130px;
+    width: 32.29166667%;
+    margin-right: 16.66666667%;
+}
+
+/*--------------- Account Details Page ---------------*/
+/*---------- header ----------*/
+#logout {
+    background-color: #f98d21;
+    width: 100px;
+    border: none;
+    margin-bottom: 20px;
+    height: 25px;
+    font-size: 18px;
+    color: #fff;
+    margin-left: 32.08333333%;
+}
+
+#logout:hover {
+    background-color: #000;
+    color: #f98d21;
+}
+/*---------- body ----------*/
+#acctform {
+    margin-top: 20px;
+    background-color: #344f59;
+    border: 2px solid #000;
+    border-radius: 20px;
+    width: 66.66666667%;
+    height:  370px;
+    margin-left: 16.66666667%;
+    box-shadow: 5px 5px 5px #333;
+}
+
+#acctform ul {
+    list-style-type: none;
+    margin-left: 100px;
+}
+
+#acctform ul li input {
+    border: none;
+    list-style-type: none;
+    width: 50%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.acctform {
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+label {
+    color: #fff;
+    text-align: right;
+    width: 100px;
+    display: inline-block;
+}
+
+#acctsubmit {
+    width: 200px;
+    margin-left: 125px;
+    margin-top: 20px;
+    background-color: #f98d21;
+    color: #fff;
+    font-size: 20px;
+}
+
+#acctsubmit:hover {
+    background-color: #fff;
+    color: #f98d21;
+}
+
+#heading {
+    text-align: center;
+    color: #fff;
+    font-size: 18pt;
+}
+
+#heading p {
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+
+/*--------------- Project Page and Task Page---------------*/
+h4 {
+    margin-bottom: 5px;
+    text-align: center;
+    color: #fff;
+    font-family: 'euphemia ucas', sans-serif;
+    font-size: 24px;
+}
+
+h5 {
+    margin: 1px;
+}
+
+table{
+    width: 700px;
+    clear: both;
+    margin: 5px auto;
+    padding: 20px;
+    text-shadow: 1px 1px 1px #273133;
+    font-size: 16px;
+    line-height: 1.4em;
+    border-collapse: collapse;
+    box-shadow: 5px 5px 5px #333;
+}
+
+td{
+    padding: 0px 15px 0px 25px;
+    text-align: center;
+    color: #000;
+    text-shadow: 1px 1px 1px #d3d3d3;
+}
+
+tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #d7e3e1;
+}
+
+#newpro {
+    background-color: #f98d21;
+    width: 150px;
+    border: none;
+    height: 25px;
+    font-size: 18px;
+    color: #fff;
+    margin-left: 910px;   
+}
+
+#newpro:hover {
+    background-color: #fff;
+    color: #f98d21;
+}
+
+/*--------------- New Project ---------------*/
+
+.newpro textarea {
+    border-radius: 10px;
+}
+
+#newp_done {
+    background-color: #f98d21;
+    width: 150px;
+    border: none;
+    height: 25px;
+    font-size: 18px;
+    color: #fff;
+    margin-left: 400px; 
+}
+
+#newp_done:hover {
+    background-color: #fff;
+    color: #f98d21;
+}
+
+#newproject {
+    margin-top: 20px;
+    background-color: #d7e3e1;
+    width: 66.66666667%;
+    height:  370px;
+    margin-left: 16.66666667%;
+    box-shadow: 5px 5px 5px #333;
+}
+
+#newproject ul {
+    list-style-type: none;
+    margin-left: 100px;
+}
+
+#newproject ul li input {
+    border: none;
+    list-style-type: none;
+    width: 50%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.newpro {
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+#newproject label {
+    font: 18px;
+    color: #000;
+    text-align: right;
+    width: 100px;
+    display: inline-block;
+}
+
+#npheading {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #fff;
+    background-color: #344f59;
+    padding: 5px;
+}
+
+.projectstatus {
+    margin-left: 180px;
+    padding: 10px;
+}
+
+.projectstatus img:nth-child(2) {
+    border: 1px solid #000;
+}
+
+/*--------------- New Task ---------------*/
+
+.taskstatus img:nth-child(3) {
+    border: 1px solid #000;
+}
+
+.taskstatus {
+    margin-left: 180px;
+    padding: 10px; 
+}
+
+
+
