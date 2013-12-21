@@ -28,7 +28,7 @@ h1 img {
     background-color: #d3d3d3;
 }
 
-#submit {
+#login_button {
     background-color: #f98d21;
     width: 100px;
     border: none;
@@ -38,9 +38,14 @@ h1 img {
     color: #fff;
 }
 
-#submit:hover {
+#login_button:hover {
     background-color: #000;
     color: #f98d21;
+}
+
+#error,#register_error{
+    color: #f00;
+    font-size: 12px;
 }
 /*---------- body ----------*/
 body {
@@ -111,13 +116,13 @@ input:hover, textarea:hover{
 	background: #d3d3d3;
 }
 
-#f_submit {
+#register_button {
     background-color: #f98d21;
     color: #fff;
     font-size: 20px;
 }
 
-#f_submit:hover {
+#register_button:hover {
     background-color: #fff;
     color: #f98d21;
 }
@@ -140,9 +145,12 @@ input:hover, textarea:hover{
 /*--------------- Account Details Page ---------------*/
 /*---------- header ----------*/
 #logout {
+    float: right;
+    margin-right: 400px;
     background-color: #f98d21;
     width: 100px;
     border: none;
+    margin-top: -75px;
     margin-bottom: 20px;
     height: 25px;
     font-size: 18px;
@@ -340,10 +348,18 @@ tr:nth-child(even) {
     padding: 10px;
 }
 
+ul li img {
+    border: 0;
+}
+
+ul li img.highlight {
+    border: 1px solid black;
+}
+/* ---- completed this with jQuery ----
 .projectstatus img:nth-child(2) {
     border: 1px solid #000;
 }
-
+*/
 /*--------------- New Task ---------------*/
 
 .taskstatus img:nth-child(3) {

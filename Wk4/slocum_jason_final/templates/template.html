@@ -1,0 +1,167 @@
+<div>            
+            
+    <script type="text/template" id="landing-template">
+            <header>
+                <h1><a href="index.html"><img class="logo" src="images/tflogo.png" alt="timeframe logo"></a></h1>
+                <section id='login' class="signin">
+                    <div id="login_form">
+                        <input type="text" data-username="{{=username}}" name="username" id="username_login"   placeholder="username"/>
+                        <input type="password" name="passwd" id="username_pwd"   placeholder="password"/>
+                        <button type="submit" name="submit" id="login_button" value="Sign In&excl;">Sign In</button>
+                    </div>
+                    <div id="error"></div>
+                </section>
+            </header>
+            <div id="wrapper">
+                <h2 id="ctahead">Find Out Why TimeFrame Is Right For You&excl;</h2>
+                <div id="ctaImage">
+                    <img class="ctaimg" src="images/cta_03.png" alt="Screenshots of the site">
+                </div>
+                <div>
+                    <form id="myform" name="myform" method="post">
+                        <h3>Sign Up&excl;</h3>
+                        <ul>
+                            <li class="form">
+                                  <input type="text" name="f_firstname" id="f_name" required placeholder="first name" />
+                            </li>
+                            <li class="form">
+                                  <input type="text" name="f_lastname" id="f_lastname" required placeholder="last name" />
+                            </li>
+                            <li class="form">
+                                  <input type="text" name="f_username" id="f_username" required placeholder="username" />
+                            </li>
+                            <li class="form">
+                                <input type="text" name="f_password" id="f_password" required placeholder="password" />
+                            </li>
+                            <li class="form">
+                                <input type="password" name="f_email" id="f_email" required placeholder="email" />
+                            </li>
+                            <li class="form">
+                              <input type="submit" id="register_button" value="Try It For Free Today&excl;" />
+                            </li>
+                        </ul>
+                    </form>
+                    <div id="register_error"></div>
+                </div>
+            </div>
+            <footer>
+                <div class="fleft">
+                    <p>TimeFrame Project Management can help you and your
+                    business by:</p>
+                    <ul>
+                        <li>Organizing Projects</li>
+                        <li>Organizing Tasks</li>
+                        <li>Simplifying Group Collaboration</li>
+                    </ul>
+                </div>
+                <div class="fright">
+                    <p>What current users are saying about our services...</p>
+                    <p><i>TimeFrame helps me control my projects and keeps
+                    my team on the same page&excl; Bill, Seattle</i></p>
+                    <p><i>Thanks TimeFrame.  No more missed deadlines&excl;  Diane, NYC</i></p>
+                </div>
+            </footer>
+    </script>
+    
+    <script type="text/template" id="app-template">
+        
+            <header id="application_header>
+                <h1><a href="index.html"><img class="logo" src="images/tflogo.png"></a></h1>
+                <section id="login" "class="signin">
+                    <form>
+                        <input type="submit" name="logout" id="logout" value="Log Out"/></p>
+                    </form>
+                </section>
+            </header>
+            <div id="wrapper">
+                <div>
+                    <h4 class="proheader">Your Projects</h4>
+                    <h5><input type="submit" name="new_project" id="newpro" value="New Project"/></h5>
+                </div>
+                <div id="table">
+                    <table>
+                      <tbody>  
+                        <tr id="sortme" class="oddrow">
+                            <td><img src="images/complete.png"></td>
+                            <td>Project Name</td>
+                            <td>Description of Project</td>
+                            <td>Due By</td>
+                            <td id='datepick'>mm/dd/yy</td>
+                        </tr>
+                        <tr id="sortme" class="evenrow">
+                            <td><img src="images/urgent.png"></td>
+                            <td>Project Name</td>
+                            <td>Description of Project</td>
+                            <td>Due By</td>
+                            <td id='datepick'>mm/dd/yy</td>
+                        </tr>
+                        <tr id="sortme" class="oddrow">
+                            <td><img src="images/active.png"></td>
+                            <td>Project Name</td>
+                            <td>Description of Project</td>
+                            <td>Due By</td>
+                            <td id='datepick'>mm/dd/yy</td>
+                        </tr>
+                        <tr id="sortme" class="evenrow"> 
+                            <td><img src="images/delayed.png"></td>
+                            <td>Project Name</td>
+                            <td>Description of Project</td>
+                            <td>Due By</td>
+                            <td id='datepick'>mm/dd/yy</td>
+                        </tr>
+                      </tbody>              
+                    </table>
+                </div>
+
+            </div>
+            <footer>
+                <div class="fleft">
+                
+                </div>
+            </footer>
+            
+    </script>
+    
+    <script type="text/template" id="add_project">
+        <header>
+            <h1><a href="index.html"><img class="logo" src="images/tflogo.png"></a></h1>
+            <section class="signin">
+                <form method="POST" action="#">
+                    <input type="submit" name="logout" id="logout" value="Log Out"/></p>
+                </form>
+            </section>
+        </header>
+        <div id="wrapper">
+            <div>
+                <h4 class="proheader">Your Projects</h4>
+                <h5></h5>
+            </div>
+            
+                   <form id="newproject" name="newproject" method="post">
+                        <h3 id="npheading">New Project<input type="submit" name="newp_done" id="newp_done" value="Done"/></h3>
+                        <ul>
+                            <li class="newpro">
+                                <label>PROJECT</label>
+                                <input type="text" name="newname" id="newname" required placeholder="I need a name!" />
+                            </li>
+                            <li class="newpro">
+                                <label>DESCRIPTION</label>
+                                <textarea rows="10" cols="50" name="message" id="message"></textarea>
+                            </li>
+                            <li class="newpro">
+                                <label>DUE DATE</label>
+                                <input type="text" name="duedate" id="datepicker" required placeholder="mm/dd/yy - Click here to choose a date." />
+                            </li>
+                            <li class="projectstatus">
+                              <img src="images/complete.png"><img src="images/urgent.png"><img src="images/active.png"><img src="images/delayed.png">
+                            </li>
+                        </ul>
+                    </form>
+   
+            <footer>
+                <div class="fleft"></div>
+            </footer>
+        </div>
+    </script>    
+
+</div>

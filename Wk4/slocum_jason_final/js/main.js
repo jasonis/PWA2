@@ -1,144 +1,210 @@
 //         js
+//  Jason Slocum      Final        PWA2
 
-$('document').ready(function(){
-
-    console.log('its a start');
     var user = {};
     var project = {};
     var task = {};
+    
     var landingTemplate;
     var appTemplate;
     
-    function checkLogin(){
+    var checkLogin = function() {
         $.ajax({
-	    url:'xhr/check_login.php',
-	    type: 'get',
-	    dataType: 'json',
-	    success: function(response){
-                if(response.user){
-                    console.log('you are a user');
-                    user = response.user;
-                    userID = response.user.id;
+            url : 'xhr/check_login.php',
+            type : 'get',
+            dataType : 'json',
+            success : function(r) {
+                if (r.user) {
+                    console.log('user exists');
+                    userID = r.user.id;
                     loadApp(userID);
-                }else{
-                    console.log('no user exists');
+                } else {
+                    console.log('landing page');
                     loadLanding();
                 }
             }
-        });    
+        });
     };
     
-    checkLogin(); 
+    checkLogin();
     
-    function loadLanding(){
-        
-        $.get('templates/landing.html', function(template){
-            
-            landingTemplate = template;
-            var mainPage = $('template').find('#template_landing').html();
-            
-            $('landingTemplate').html(mainPage);
+    var loadLanding = function() {
+        $('#wrap').empty();
+        $.get('templates/template.html', function(htmlArg) {
+    
+            landingTemplate = htmlArg;
+    
+            var landing = $(htmlArg).find('#landing-template').html();
+            $.template('landingtemplate', landing);
+    
             var html = $.render('', 'landingtemplate');
-            
-            $('#container').append(html);
-            
-            console.log('inside the loadLanding function');
-            
-            $('#submit').on('click', function(e){
+    
+            $('#wrap').append(html);
+    
+            $('#login_button').on('click', function(e) {
+                console.log('you clicked login');
                 e.preventDefault();
                 login();
             });
+    
+            $('#register_button').on('click', function(e) {
+                console.log('you clicked on register');
+                e.preventDefault();
+                register();
+            });
+    
         });
-    };           
-                
-    function login(){
-        var user = $('#username').val();
-        var pass = $('#passwd').val();
-                
+    };
+    
+    var login = function() {
+    
+        var user = $('#username_login').val();
+        var pass = $('#username_pwd').val();
+    
         $.ajax({
-            url: 'xhr/login.php',
-            type: 'post',
-            dataType: 'json',
-            data: {
-                'username': user,
-                'password': pass
+            url : 'xhr/login.php',
+            data : {
+                username : user,
+                password : pass
             },
-            success: function(response){
-                if(response.user){
-                    user = response.user;
+            type : 'post',
+            dataType : 'json',
+            success : function(response) {
+                if (response.user) {
+                    var userID = response.user.id;
+                    loadApp(userID);
+    
+                } else {
+                    console.log('no user');
+                    $('#error').html('Incorrect Login. Please Try Again.');
+                }
+            }
+                    
+        });
+    };
+    
+    //------------------------------------------Register------------------------------------------------//
+    
+    var register = function() {
+        var firstname = $('#f_name').val();
+        var lastname = $('#f_lastname').val();
+        var user = $('#f_username').val();
+        var pass = $('#f_password').val();
+        var email = $('#f_email').val();
+        $.ajax({
+            url : 'xhr/register.php',
+            data : {
+                firstname : firstname,
+                lastname : lastname,
+                username : user,
+                password : pass,
+                email : email
+            },
+            type : 'post',
+            dataType : 'json',
+            success : function(response) {
+                if (response.user) {
+                    console.log(response);
                     loadApp();
-                }else{
-                    var error = '<span class = "error">Invalid Username or Password</span>';
-                    $(error).appendTo('.signin');
-                    console.log('there has been an error with the login');
+                } else {
+                    console.log('register unsuccessful');
+                    $('#register_error').html('Please ensure your information is correct.');
                 }
             }
         });
-    };        
-            
-    // register new user section
-    function register(){
-        $('#f_submit').click(function(){
-            var firstName = $('#f_name').val();
-            var lastName = $('#f_lastname').val();
-            var username = $('#username').val();
-            var password = $('#f_password').val();
-            var email = $('#f_email').val();
-                   
-            $.ajax({
-                url: 'xhr/register.php',
-                type: 'post',
-                dataType: 'json',
-                data: {
-                    firstname: firstName,
-                    lastname: lastName,
-                    username: username,
-                    password: password,
-                    email: email
-                },
-                success: function(response){
-                    if(response.user){
-                        loadApp();
-                    }else{
-                        var error = '<span class = "error">Please Try Again.</span>';
-                        $(error).appendTo('#f_submit');
-                    }
-                }
-            });
+    
+        return false;
+    };
+    
+    //----------------------------------------------Logout---------------------------------------------//
+    
+    var logout = function() {
+        $.get('xhr/logout.php', function() {
+                loadLanding();
         });
         return false;
     };
     
+    //---------------------------------------------Load Project Page-------------------------------------//
+    var loadApp = function(id) {
+        $('#wrap').empty();
     
-     
-    function loadApp(id){
+        $.get('templates/template.html', function(htmlArg) {
     
-        $.get('templates/app.html', function(htmlArg){
-            appTemplate = htmlArg;
+        appTemplate = htmlArg;
+    
+        var app = $(htmlArg).find('#app-template').html();
+        $.template('apptemplate', app);
+    
+        var html = $.render('', 'apptemplate');
+    
+        $('#wrap').append(html);
+                    
+        $('tbody').sortable();
+    
+        $('#logout').on('click', function(e) {
+            e.preventDefault();
+            logout();
+        });
+    
+        $('#newpro').on('click', function(e) {
+            e.preventDefault();
+            loadAddProject();
+        });
+    
+    });
+    
             
-            var app = $(htmlArg).find('#template_app').html();
-        
-            $.template('appTemplate', app);
-            var html = $('#container').render('', 'appTemplate');
+    //----------------------------------Add Project-----------------------------------------//
+    
+    var loadAddProject = function() {
+        var status;
+        $('#wrap').empty();
+        var adding_project = $(appTemplate).find('#add_project').html();
+        $.template('addproject', adding_project);
+    
+        var html = $.render('', 'addproject');
+    
+        $('#wrap').append(html);
+    
+        $('.projectstatus').on('click', function(e) {
+            console.log('status click');
+            e.preventDefault();
+            status = $(this).html();
+        });
             
-            $('#container').append(html);
-            
-            $('#logout').on('click', function(e) {
-                e.preventDefault();
-                logout();
+    
+        $(function() {
+            $("#datepicker").datepicker({
+            changeMonth : true,
+            changeYear : true,
+            dateFormat : "D M d, yy"
             });
         });
         
-    };
-    
-    function logout(){
-        $.get('xhr/logout.php', function(){
-            window.location.replace("index.html");    
+        $('ul li img').click(function (e) {
+            $('img.highlight').not(e.target).removeClass('highlight');
+            $(this).toggleClass('highlight');
         });
-        return false;
-    };
     
+        $('#newp_done').on('click', function(e) {
+            console.log('done been clicked');
+            e.preventDefault();
+            loadApp();
+            console.log(status);
+        });
+    
+        $('#logout').on('click', function(e) {
+            e.preventDefault();
+            logout();
+        });
+    
+    };
 
-});  
+
+};
+
+
+
 
 

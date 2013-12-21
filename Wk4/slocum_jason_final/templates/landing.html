@@ -4,20 +4,21 @@
             <header>
                 <h1><a href="index.html"><img class="logo" src="images/tflogo.png" alt="timeframe logo"></a></h1>
                 <section class="signin">
-                    <form method="POST" action="#">
-                        <p><input type="text" name="username" id="username"  required placeholder="username"/>
+                    <div>
+                        <p><input type="text" name="username" data-username="{{=username}}" id="username"  required placeholder="username"/>
                         <input type="password" name="passwd" id="passwd"  required placeholder="password"/>
                         <button type="submit" name="submit" id="submit" value="Sign In&excl;"/>Submit</button></p>
-                    </form>
+                    </div>
                 </section>
             </header>
+            
             <div id="wrapper">
                 <h2 id="ctahead">Find Out Why TimeFrame Is wrong For You&excl;</h2>
                 <div id="ctaImage">
                     <img class="ctaimg" src="images/cta_03.png" alt="Screenshots of the site">
                 </div>
                 <div>
-                    <form id="myform" name="myform" method="post">
+                    <form id="myform" name="myform">
                         <h3>Sign Up&excl;</h3>
                         <ul>
                             <li class="form">
